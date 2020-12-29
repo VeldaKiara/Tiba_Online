@@ -6,6 +6,7 @@ USER_TYPES = [
     (0, 'Doctor'),
     (1, 'Pharmacist'),
     (2,'Patient'),
+    
 ]
 GENDER_CHOICES=[
     (0, 'Female'),
@@ -21,8 +22,8 @@ GENDER_CHOICES=[
 
 class CustomUser(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user_type = models.IntegerField(choices=USER_TYPES)
-    gender = models.IntegerField(choices=GENDER_CHOICES)
+    user_type = models.IntegerField(choices=USER_TYPES,default=0)
+    gender = models.IntegerField(choices=GENDER_CHOICES,default=0)
     specialization = models.CharField( max_length=250,null=True, blank=True)
     license_number = models.CharField(max_length=250, null=True, blank=True)
     profession = models.CharField(max_length=250, null=True, blank=True)
