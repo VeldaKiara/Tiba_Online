@@ -30,6 +30,7 @@ class Admit(models.Model):
     class Meta:
         pass
 
+
     
 
 
