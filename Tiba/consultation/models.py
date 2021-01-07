@@ -6,7 +6,8 @@ class Consultation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     symptoms = models.CharField(max_length=1000)
     temparature = models.IntegerField(blank=False, null=False)
-    blood_pressure = models.IntegerField(blank=False, null=False)
+    blood_pressure_a = models.IntegerField(blank=False, null=False, default=0)
+    blood_pressure_b = models.IntegerField(blank=False, null=False, default=0)
     diagnosis = models.CharField(max_length=1000)
     doctor_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='doctor')
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='patient')
@@ -24,7 +25,7 @@ class Reffer(models.Model):
 class Admit(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     ward = models.CharField(max_length=300)
-    specialist = models.CharField(max_length=300)
+    specialist = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     note_to_specialist = models.CharField(max_length=300)
     current_prescriptions = models.CharField(max_length=300)
     class Meta:

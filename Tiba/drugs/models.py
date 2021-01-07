@@ -6,7 +6,7 @@ class Drugs(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=1000, null=False, blank=False)
     medicine_type = models.CharField(max_length=240, null=False, blank=False)
-    unit = models.IntegerField(default=0)
+    unit = models.CharField(max_length=240, null=False, blank=False)
     unit_remaining = models.IntegerField(default=0)
     class Meta:
         pass
