@@ -6,7 +6,7 @@ class ConditionsViewSets(viewsets.ModelViewSet):
     queryset = Conditions.objects.all()
     serializer_class = ConditionsSerializer
     
-class CustomUserSerializer(viewsets.ModelViewSet):
+class CustomUserViewSets(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
     
